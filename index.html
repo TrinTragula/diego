@@ -42,14 +42,34 @@
 </head>
 
 <body>
+    <iframe src="music/silence.mp3" allow="autoplay" id="audio" style="display: none"></iframe>
+
+    <audio id="player" autoplay loop>
+        <source src="music/bomba.mp3" type="audio/mp3">
+    </audio>
+
     <div style="display: flex; flex-direction: column;">
-        <img id="foto" src="img/diego1.jpg" height="300px"/>
+        <img id="foto" src="img/diego1.jpg" height="300px" />
         <h1 id="titolo">BUON COMPLEANNO DIEGO !!!!!</h1>
-        <img src="img/atomo.gif" width="50%"/>
+        <img src="img/atomo.gif" width="33%" />
     </div>
 
     <script>
         window.onload = function (event) {
+            // let audioPlaying = true,
+            //     backgroundAudio, browser;
+            // browser = navigator.userAgent.toLowerCase();
+            // document.body.prepend('<audio class="audio1" src="audio.mp3" loop></audio>')
+            // $().prependTo('body');
+            // if (!browser.indexOf('firefox') > -1) {
+            //     $('<embed id="background-audio" src="audio.mp3" autostart="1"></embed>').prependTo('body');
+            //     backgroundAudio = setInterval(function () {
+            //         $("#background-audio").remove();
+            //         $('<embed id="background-audio" src="audio.mp3"></embed>').prependTo('body');
+            //     }, 120000); // 120000 is the duration of your audio which in this case 2 mins.
+            // }
+
+
             var i = 1;
             setInterval(() => {
                 document.getElementById("titolo").style.color = "#" + Math.floor(Math.random() * 16777215).toString(16);
