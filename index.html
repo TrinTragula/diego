@@ -42,10 +42,9 @@
 </head>
 
 <body>
-    <iframe src="music/silence.mp3" allow="autoplay" id="audio" style="display: none"></iframe>
-
-    <audio id="player" autoplay loop>
-        <source src="music/bomba.mp3" type="audio/mp3">
+    <audio id="bomba" controls autoplay style="display: none;">
+        <source src="music/bomba.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
     </audio>
 
     <div style="display: flex; flex-direction: column;">
@@ -55,21 +54,15 @@
     </div>
 
     <script>
+        const play = () => {
+            try {
+                var vAudio = document.getElementById("bomba");
+                vAudio.play().catch(() => setTimeout(play, 1000));
+            } catch {
+                setTimeout(play, 1000);
+            }
+        };
         window.onload = function (event) {
-            // let audioPlaying = true,
-            //     backgroundAudio, browser;
-            // browser = navigator.userAgent.toLowerCase();
-            // document.body.prepend('<audio class="audio1" src="audio.mp3" loop></audio>')
-            // $().prependTo('body');
-            // if (!browser.indexOf('firefox') > -1) {
-            //     $('<embed id="background-audio" src="audio.mp3" autostart="1"></embed>').prependTo('body');
-            //     backgroundAudio = setInterval(function () {
-            //         $("#background-audio").remove();
-            //         $('<embed id="background-audio" src="audio.mp3"></embed>').prependTo('body');
-            //     }, 120000); // 120000 is the duration of your audio which in this case 2 mins.
-            // }
-
-
             var i = 1;
             setInterval(() => {
                 document.getElementById("titolo").style.color = "#" + Math.floor(Math.random() * 16777215).toString(16);
@@ -77,8 +70,9 @@
             setInterval(() => {
                 document.getElementById("foto").src = "img/diego" + i + ".jpg";
                 i++;
-                if (i > 4) i = 1;
-            }, 500);
+                if (i > 8) i = 1;
+            }, 350);
+            play();
         };
     </script>
 </body>
