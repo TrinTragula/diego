@@ -5,12 +5,12 @@
     <style>
         html,
         body {
-            background-image: url("img/boom.gif");
             margin: 0;
             padding: 0;
             /* font-family: 'Comic Neue Angular', sans-serif; */
             font-family: 'Comic Neue', sans-serif;
             font-size: 40px;
+            background-color: aqua;
         }
 
         body {
@@ -40,10 +40,10 @@
         }
 
         button {
-            height: 100px;
+            height: 150px;
             margin: 15px;
             padding: 15px;
-            font-size: 30px;
+            font-size: 45px;
             font-weight: bold;
         }
     </style>
@@ -56,10 +56,11 @@
     </audio>
 
     <div style="display: flex; flex-direction: column;">
-        <img id="foto" src="img/diego1.jpg" height="300px" />
-        <h1 id="titolo">BUON COMPLEANNO DIEGO !!!!!</h1>
-        <img id="atomo" src="img/atomo.gif" width="33%" hidden/>
-        <button id="bottone">ALZA IL VOLUME E CLICCA QUI PER IL TUO REGALO!</button>
+        <img id="foto" src="img/diego1.jpg" height="300px" hidden />
+        <h1 id="titolo" hidden>BUON COMPLEANNO DIEGO !!!!!</h1>
+        <img id="atomo" src="img/atomo.gif" height="15%" hidden />
+        <img id="banana" style="margin-top: 30px;" src="img/banana.gif" width="15%" hidden />
+        <button id="bottone">ALZA IL VOLUME E CLICCA QUI SE SEI A FAVORE DEL NUCLEARE!</button>
     </div>
 
     <script>
@@ -76,11 +77,15 @@
             document.getElementById("bottone").addEventListener("click", () => {
                 document.getElementById("bottone").hidden = true;
                 document.getElementById("atomo").hidden = false;
+                document.getElementById("titolo").hidden = false;
+                document.getElementById("foto").hidden = false;
+                document.getElementById("banana").hidden = false;
+                document.body.style.backgroundImage = "url('img/boom.gif')";
             });
             setInterval(() => {
                 document.getElementById("titolo").style.color = "#" + Math.floor(Math.random() * 16777215).toString(16);
                 document.getElementById("bottone").style.background = "#" + Math.floor(Math.random() * 16777215).toString(16);
-                document.getElementById("bottone").style.color = "#" + Math.floor(Math.random() * 16777215).toString(16);
+                // document.getElementById("bottone").style.color = "#" + Math.floor(Math.random() * 16777215).toString(16);
             }, 100);
             setInterval(() => {
                 document.getElementById("foto").src = "img/diego" + i + ".jpg";
