@@ -38,6 +38,14 @@
             justify-content: center;
             text-align: center;
         }
+
+        button {
+            height: 100px;
+            margin: 15px;
+            padding: 15px;
+            font-size: 30px;
+            font-weight: bold;
+        }
     </style>
 </head>
 
@@ -50,22 +58,29 @@
     <div style="display: flex; flex-direction: column;">
         <img id="foto" src="img/diego1.jpg" height="300px" />
         <h1 id="titolo">BUON COMPLEANNO DIEGO !!!!!</h1>
-        <img src="img/atomo.gif" width="33%" />
+        <img id="atomo" src="img/atomo.gif" width="33%" hidden/>
+        <button id="bottone">ALZA IL VOLUME E CLICCA QUI PER IL TUO REGALO!</button>
     </div>
 
     <script>
         const play = () => {
             try {
                 var vAudio = document.getElementById("bomba");
-                vAudio.play().catch(() => setTimeout(play, 1000));
+                vAudio.play().catch(() => setTimeout(play, 111));
             } catch {
-                setTimeout(play, 1000);
+                setTimeout(play, 111);
             }
         };
         window.onload = function (event) {
             var i = 1;
+            document.getElementById("bottone").addEventListener("click", () => {
+                document.getElementById("bottone").hidden = true;
+                document.getElementById("atomo").hidden = false;
+            });
             setInterval(() => {
                 document.getElementById("titolo").style.color = "#" + Math.floor(Math.random() * 16777215).toString(16);
+                document.getElementById("bottone").style.background = "#" + Math.floor(Math.random() * 16777215).toString(16);
+                document.getElementById("bottone").style.color = "#" + Math.floor(Math.random() * 16777215).toString(16);
             }, 100);
             setInterval(() => {
                 document.getElementById("foto").src = "img/diego" + i + ".jpg";
