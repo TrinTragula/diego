@@ -59,7 +59,11 @@
         <img id="foto" src="img/diego1.jpg" height="300px" hidden />
         <h1 id="titolo" hidden>BUON COMPLEANNO DIEGO !!!!!</h1>
         <img id="atomo" src="img/atomo.gif" height="15%" hidden />
-        <img id="banana" style="margin-top: 30px;" src="img/banana.gif" width="15%" hidden />
+        <div id="banana" style="display: flex; flex-direction: row;" hidden>
+            <img class="banana" style="margin-top: 30px;" src="img/banana.gif" width="15%" hidden/>
+            <img class="banana" style="margin-top: 30px;" src="img/banana.gif" width="15%" hidden/>
+            <img class="banana" style="margin-top: 30px;" src="img/banana.gif" width="15%" hidden/>
+        </div>
         <button id="bottone">ALZA IL VOLUME E CLICCA QUI SE SEI A FAVORE DEL NUCLEARE!</button>
     </div>
 
@@ -80,6 +84,9 @@
                 document.getElementById("titolo").hidden = false;
                 document.getElementById("foto").hidden = false;
                 document.getElementById("banana").hidden = false;
+                document.getElementsByClassName("banana")[0].hidden = false;
+                document.getElementsByClassName("banana")[1].hidden = false;
+                document.getElementsByClassName("banana")[2].hidden = false;
                 document.body.style.backgroundImage = "url('img/boom.gif')";
             });
             setInterval(() => {
