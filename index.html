@@ -5,7 +5,7 @@
     <style>
         html,
         body {
-            background-image: url("/boom.gif");
+            background-image: url("img/boom.gif");
             margin: 0;
             padding: 0;
             /* font-family: 'Comic Neue Angular', sans-serif; */
@@ -43,15 +43,22 @@
 
 <body>
     <div style="display: flex; flex-direction: column;">
+        <img id="foto" src="img/diego1.jpg" height="300px"/>
         <h1 id="titolo">BUON COMPLEANNO DIEGO !!!!!</h1>
-        <img src="atomo.gif" width="50%"/>
+        <img src="img/atomo.gif" width="50%"/>
     </div>
 
     <script>
         window.onload = function (event) {
+            var i = 1;
             setInterval(() => {
                 document.getElementById("titolo").style.color = "#" + Math.floor(Math.random() * 16777215).toString(16);
-            }, 100)
+            }, 100);
+            setInterval(() => {
+                document.getElementById("foto").src = "img/diego" + i + ".jpg";
+                i++;
+                if (i > 4) i = 1;
+            }, 500);
         };
     </script>
 </body>
